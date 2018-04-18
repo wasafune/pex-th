@@ -1,17 +1,27 @@
 /* eslint-env node, mocha */
-
-const Immutable = require('immutable');
+const { fromJS, List } = require('immutable');
 const assert = require('assert');
 
 
-function transformErrors() {
-  return Immutable.Map();
+function transformErrors(error, ...preserved) {
+  if (typeof error === 'string') return `${error}.`;
+  if (preserved[0] === false) {
+    return error
+      .reduce((acc, ele) => acc.concat(transformErrors(ele, false)), List())
+      .filter((ele, index, curr) => curr.indexOf(ele) === index);
+  }
+  return error.map((ele, key) => {
+    if ((preserved.includes(key) || preserved[0] === true) && typeof ele.first() !== 'string') {
+      return transformErrors(ele, true);
+    }
+    return transformErrors(ele, false).join(' ');
+  });
 }
+
 
 it('should tranform errors', () => {
   // example error object returned from API converted to Immutable.Map
-  // eslint-disable-next-line
-  const errors = Immutable.fromJS({
+  const errors = fromJS({
     name: ['This field is required'],
     age: ['This field is required', 'Only numeric characters are allowed'],
     urls: [{}, {}, {
@@ -46,7 +56,7 @@ it('should tranform errors', () => {
   // in this specific case,
   // errors for `url` and `urls` keys should be nested
   // see expected object below
-  const result = transformErrors();
+  const result = transformErrors(errors, 'url', 'urls');
 
   assert.deepEqual(result.toJS(), {
     name: 'This field is required.',
