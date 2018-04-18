@@ -8,7 +8,7 @@ Parameters:
     - an object, array, or a string
   preserved:
     - key names to be preserved or a boolean that determines whether to preserve
-    a key's structure
+    the current error's structure
 
 Breakcases:
   - object/array is empty
