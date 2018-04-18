@@ -2,7 +2,18 @@
 const { fromJS, List } = require('immutable');
 const assert = require('assert');
 
+/*
+Parameters:
+  error:
+    - an object, array, or a string
+  preserved:
+    - key names to be preserved or a boolean that determines whether to preserve
+    the current error's structure
 
+Breakcases:
+  - object/array is empty
+  - error parameter is a string
+*/
 function transformErrors(error, ...preserved) {
   if (typeof error === 'string') return `${error}.`;
   if (preserved[0] === false) {
