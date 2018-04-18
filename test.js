@@ -11,7 +11,7 @@ Parameters:
     the current error's structure
 
 Breakcases:
-  - object/array is empty
+  - error parameter object/array is empty
   - error parameter is a string
 */
 function transformErrors(error, ...preserved) {
