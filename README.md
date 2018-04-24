@@ -3,8 +3,8 @@
 ## Getting Started
 
 ```
-git clone https://github.com/wasafune/special-error-handler-challenge.git
-cd pex-th
+git clone https://github.com/wasafune/transform-error-challenge.git
+cd transform-error-challenge
 npm install
 npm test
 ```
