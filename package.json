@@ -1,7 +1,7 @@
 {
-  "name": "pex-th",
+  "name": "transform-error-challenge",
   "version": "1.0.0",
-  "description": "Pex take home",
+  "description": "Transform Error Object Challenge",
   "main": "index.js",
   "scripts": {
     "pretest": "eslint --ignore-path .gitignore .",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wasafune/pex-th.git"
+    "url": "git+https://github.com/wasafune/transform-error-challenge.git"
   },
   "author": "Peter Lee",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wasafune/pex-th/issues"
+    "url": "https://github.com/wasafune/transform-error-challenge/issues"
   },
-  "homepage": "https://github.com/wasafune/pex-th#readme",
+  "homepage": "https://github.com/wasafune/transform-error-challenge#readme",
   "dependencies": {
     "immutable": "^3.8.2",
     "mocha": "^5.1.0"
