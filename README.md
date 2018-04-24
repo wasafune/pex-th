@@ -3,7 +3,7 @@
 ## Getting Started
 
 ```
-git clone https://github.com/wasafune/pex-th.git
+git clone https://github.com/wasafune/special-error-handler-challenge.git
 cd pex-th
 npm install
 npm test
